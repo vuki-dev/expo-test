@@ -5,7 +5,13 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
+import TextEdit from '@/components/TextEdit';
+import TextComponent from '@/components/TextComponent';
+import { useCustomSelector } from '@/store/storeHooks';
+
 export default function HomeScreen() {
+  const textContent = useCustomSelector((state) => state.text.content);
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -15,11 +21,23 @@ export default function HomeScreen() {
           style={styles.reactLogo}
         />
       }>
+      <TextEdit />
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Welcome!</ThemedText>
         <HelloWave />
       </ThemedView>
+        <TextComponent styled/>
       <ThemedView style={styles.stepContainer}>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Done: Variable is placed in 5 different places in app</ThemedText>
+        <ThemedText>
+          Variable is placed as placeholder for text input, also below title (Welcome), and below this text.
+          Fourth time its placed in My Tab, and fifth in explore tab under last collapsable element. Somewhere its styled somewhere not (optional prop).
+        </ThemedText>
+        <ThemedText>
+          {textContent}.   
+        </ThemedText>
+      </ThemedView>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>
           Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.

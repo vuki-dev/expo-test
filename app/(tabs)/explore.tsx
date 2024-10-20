@@ -6,6 +6,7 @@ import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import TextComponent from '@/components/TextComponent';
 
 export default function TabTwoScreen() {
   return (
@@ -83,6 +84,11 @@ export default function TabTwoScreen() {
             </ThemedText>
           ),
         })}
+      </Collapsible>
+      <Collapsible title="Our text component">
+        <ThemedText>
+          <TextComponent styled/>
+        </ThemedText>
       </Collapsible>
     </ParallaxScrollView>
   );
